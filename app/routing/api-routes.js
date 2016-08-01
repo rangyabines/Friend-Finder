@@ -1,5 +1,5 @@
 var friendsData = require('../data/friends.js');
-var finderData = require('..data/finder.js')
+var finderData = require('../data/finder.js')
 var path 			= require('path');
 
 
