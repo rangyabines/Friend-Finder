@@ -1,5 +1,5 @@
 body {
-  background: url('../images/friends.jpg') no-repeat center center fixed; 
+  background: url('../images/friends1.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -7,28 +7,31 @@ body {
 	}
 
 h3{
-	text-shadow: 3px 2px white;
 	font-size: 3.5em;
-	color: #ff5252;
 	font-weight: bold;
+	color: #ff5252;
+	font-family: 'Candal', sans-serif;
+	text-shadow: 1px 2px 0 #e0e0e0;
 }
 h4{
-	text-shadow: 1px 2px black;
+	text-shadow: 1px 2px 0 black;
 	color: white;
 }
 .question{
 	font-size: 1.5em;
 	color: white;
-	text-shadow: 1px 2px black;
+	text-shadow: 1px 2px 0 black;
 }
 .browser-default{
 	width: 35%;
 	background-color: rgba(51, 51, 51, 0.08);
-	color: #ff5252;
+	color: #4db6ac;
 	border: none;
+	font-size: 18px;
 }
 .input-field{
 	color: white;
+	padding-top: 3%;
 }
 .btn{
 	margin-left: 50%;
