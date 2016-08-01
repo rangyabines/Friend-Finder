@@ -1,11 +1,5 @@
-// ===============================================================================
-// LOAD DATA
-// We are linking our routes to a series of "data" sources. 
-// These data sources hold arrays of information on table-data, waitinglist, etc.
-// ===============================================================================
-
-var tableData 		= require('../data/friends.js');
-// var waitListData 	= require('../data/waitinglist-data.js');
+var friendsData = require('../data/friends.js');
+var finderData = require('..data/finder.js')
 var path 			= require('path');
 
 
@@ -18,53 +12,82 @@ var path 			= require('path');
 module.exports = function(app){
 
 	// API GET Requests
-	// Below code handles when users "visit" a page. 
-	// In each of the below cases when a user visits a link 
-	// (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table) 
-	// ---------------------------------------------------------------------------
 
 	app.get('/api/friends', function(req, res){
+		res.json(friendsData);
+	});
+
+	app.get('/api/finder', function(req, res){
 		res.json(finderData);
 	});
 
-	// app.get('/api/waitlist', function(req, res){
-	// 	res.json(waitListData);
-	// });
+app.post('/api/friends', function(req, res){
 
-	// API POST Requests
-	// Below code handles when a user submits a form and thus submits data to the server.
-	// In each of the below cases, when a user submits form data (a JSON object)
-	// ...the JSON is pushed to the appropriate Javascript array
-	// (ex. User fills out a reservation request... this data is then sent to the server...
-	// Then the server saves the data to the tableData array)
-	// ---------------------------------------------------------------------------
+	clearMatch();
 
-	app.post('/api/finder', function(req, res){
+	var newfriend = req.body;
+	var result;
 
-		// Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
-		// It will do this by sending out the value "true" have a table 
-		// if(tableData.length < 5 ){
-		// 	tableData.push(req.body);
-		// 	res.json(true); // KEY LINE
-		// }
+	console.log(newfriend);
 
-		// // Or false if they don't have a table
-		// else{
-		// 	waitListData.push(req.body);
-		// 	res.json(false); // KEY LINE
-		// }
-			finderData.push(re.body);
-	});
+	userData.push(newfriend);
 
-	// ---------------------------------------------------------------------------
-	// I added this below code so you could clear out the table while working with the functionality.
-	// Don't worry about it!
+	res.json(newfriend);
 
-	app.post('/api/clear', function(req, res){
-		// Empty out the arrays of data
+
+	var friendScores;
+	var totalDiff;
+	var results = [];
+	var ratingArray = [];
+	var counter = 0;
+	var lowest;
+
+	function getSum(total, num) {
+    		return total + num;
+	};
+
+	function clearMatch() {
 		finderData = [];
-		// waitListData = [];
+	}
+
+
+	for (var i = 0; i < friendsData.length; i++) {
+
+			friendScores = friendsData[i].scores;
+			
+			for (var j = 0; j < newfriend.scores.length; j++) {
+			results.push(Math.abs(newfriend.scores[j] - friendScores[j]));
+			}
+
+			totalDiff = results.reduce(getSum);
+			friendsData[i].rating = totalDiff;
+			console.log(friendsData[i].rating);
+			counter++;
+
+			results = [];
+
+			ratingArray.push(friendsData[i].rating);
+		}
+		
+		if (counter === friendsData.length) {
+			Math.max.apply(null, ratingArray);
+			lowest = Math.min.apply(null, ratingArray);
+			console.log(lowest);
+		}
+
+		for (var i = 0; i < friendsData.length; i++) {
+			if (friendsData[i].rating == lowest) {
+				finderData.push(friendsData[i]);		
+			};
+
+			friendsData[i].rating = 0;
+		}
 
 		console.log(finderData);
+
+		friendsData.push(newfriend);
+
+		userData = [];
+
 	})
 }

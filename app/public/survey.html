@@ -1,0 +1,228 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Friend Finder</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Candal" rel="stylesheet">
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+   <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style2.css">
+
+</head>
+<body>
+
+  <div class="container">
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <h3>Survey Questions</h3>
+          <hr>
+          <h4>About You</h4>
+          <div class="input-field col s12">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="name" type="text" class="validate" required>
+            <label for="name">Name <em>(Required)</em></label>
+          </div>
+          <div class="input-field col s12">
+            <i class="material-icons prefix">photo</i>
+            <input id="photo" type="text" class="validate" required>
+            <label for="photo">Link to Photo Image <em>(Required)</em></label>
+          </div>
+        </div>
+      </form>
+    </div>
+  <!-- Questions -->
+    
+    <div class="section">
+      <p class="question">1) You’re a relatively chill person to be around.</p>
+      <select class="browser-default" id="q1">
+        <option for="chill">Select an Option</option>
+        <option value="1">1 (Strongly Disagree)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 (Strongly Agree)</option>
+      </select>
+    </div>
+    <br>
+    <div class="section">
+      <p class="question">2) You are comfortable enough with yourself to be able to tell the truth.</p>
+      <select class="browser-default" id="q2">
+        <option for="chill">Select an Option</option>
+        <option value="1">1 (Strongly Disagree)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 (Strongly Agree)</option>
+      </select>
+    </div>
+    <br>
+
+    <div class="section">
+      <p class="question">3) You’re truly capable of giving as much as you take, if not more.</p>
+      <select class="browser-default" id="q3">
+        <option for="chill">Select an Option</option>
+        <option value="1">1 (Strongly Disagree)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 (Strongly Agree)</option>
+      </select>
+    </div>
+    <br>
+
+    <div class="section">
+      <p class="question">4) You’re not interested in all the bullshit games of modern dating.</p>
+      <select class="browser-default" id="q4">
+        <option for="chill">Select an Option</option>
+        <option value="1">1 (Strongly Disagree)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 (Strongly Agree)</option>
+      </select>
+    </div>
+    <br>
+
+    <div class="section">
+      <p class="question">5) You’re ready to walk away if someone doesn’t want what you want.</p>
+      <select class="browser-default" id="q5">
+        <option for="chill">Select an Option</option>
+        <option value="1">1 (Strongly Disagree)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 (Strongly Agree)</option>
+      </select>
+    </div>
+    <br>
+
+    <div class="section">
+      <p class="question">6) You’re not sitting around expecting the world to revolve around your needs and desires.</p>
+      <select class="browser-default" id="q6">
+        <option for="chill">Select an Option</option>
+        <option value="1">1 (Strongly Disagree)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 (Strongly Agree)</option>
+      </select>
+    </div>
+    <br>
+
+    <div class="section">
+      <p class="question">7) You’re not expecting someone to come along and complete your life or give your life meaning.</p>
+      <select class="browser-default" id="q7">
+        <option for="chill">Select an Option</option>
+        <option value="1">1 (Strongly Disagree)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 (Strongly Agree)</option>
+      </select>
+    </div>
+    <br>
+
+    <div class="section">
+      <p class="question">8) You’re also not looking for someone to make you happy.</p>
+      <select class="browser-default" id="q8">
+        <option for="chill">Select an Option</option>
+        <option value="1">1 (Strongly Disagree)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 (Strongly Agree)</option>
+      </select>
+    </div>
+    <br>
+
+    <div class="section">
+      <p class="question">9) You’ve mostly dealt with all your big baggage.</p>
+      <select class="browser-default" id="q9">
+        <option for="chill">Select an Option</option>
+        <option value="1">1 (Strongly Disagree)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 (Strongly Agree)</option>
+      </select>
+    </div>
+    <br>
+
+    <div class="section">
+      <p class="question">10) You really want to share your life with someone</p>
+      <select class="browser-default" id="q10">
+        <option for="chill">Select an Option</option>
+        <option value="1">1 (Strongly Disagree)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 (Strongly Agree)</option>
+      </select>
+    </div>
+  </div>
+    <br>
+    <br>
+                      
+    <!--- Submit Button -->
+    <button class="btn waves-effect waves-light btn-large" type="submit" name="action" id="submitBtn">Submit
+      <i class="material-icons right">send</i>
+    </button>
+
+    <hr>
+    <footer class="footer">
+      <div class="container">
+          <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/afhaque/friendfinder">GitHub Repo</a> | <a href="../public/home.html">Home</a></p>
+      </div>
+    </footer>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal bottom-sheet">
+      <div class="modal-content">
+        <h4>Modal Header</h4>
+        <p>A bunch of text</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+      </div>
+    </div>
+  </div>
+
+  
+  
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript">
+   $('#submitBtn').on("click", function(){
+        var newFriend =
+        {
+          name: $("#name").val().trim(),
+          photo: $("#photo").val().trim(),
+          scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(), ]
+        };
+        var currentURL = window.location.origin;
+        $.post(currentURL + "/api/friends", newFriend, function(data){
+            console.log(data);
+    
+            $("#Modal1").modal('toggle');
+        });
+        $.get(currentURL + "/api/finder", function(data){
+            $("#matchImg").empty();
+            $("#matchText").empty();
+            $("#matchImg").attr("src", data[0].photo);
+            $("#matchText").append("<h3>" + data[0].name + ":</h3>");
+        })
+    return false;
+    });
+
+  </script>
+</body>
+</html>
