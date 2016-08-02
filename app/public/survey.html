@@ -13,11 +13,16 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
    <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+   <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
   <link rel="stylesheet" type="text/css" href="css/style2.css">
+   <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 </head>
 <body>
-
   <div class="container">
     <div class="row">
       <form class="col s12">
@@ -171,28 +176,30 @@
     <br>
     <br>
                       
-    <!--- Submit Button -->
-    <button class="btn waves-effect waves-light btn-large" type="submit" name="action" id="submitBtn">Submit
+
+    <button data-target="modal1" class="btn modal-trigger waves-effect waves-light btn-large" id="submit">Submit
       <i class="material-icons right">send</i>
     </button>
 
-    <hr>
-    <footer class="footer">
-      <div class="container">
-          <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/afhaque/friendfinder">GitHub Repo</a> | <a href="../public/home.html">Home</a></p>
-      </div>
-    </footer>
 
     <!-- Modal Structure -->
-    <div id="modal1" class="modal bottom-sheet">
+    <div id="modal1" class="modal">
       <div class="modal-content">
         <h4>Modal Header</h4>
-        <p>A bunch of text</p>
+        <span id="finderText"></span>
+        <span id="finderImg"></span>
       </div>
       <div class="modal-footer">
         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
       </div>
     </div>
+
+    <hr>
+    <footer class="footer">
+      <div class="container">
+          <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/afhaque/friendfinder">GitHub Repo</a> | <a href="home.html">Home</a></p>
+      </div>
+    </footer>
   </div>
 
   
@@ -201,7 +208,10 @@
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
   <script type="text/javascript">
-   $('#submitBtn').on("click", function(){
+  $(document).ready(function(){
+
+    $('.modal-trigger').leanModal();
+    $('#submit').on("click", function(){
         var newFriend =
         {
           name: $("#name").val().trim(),
@@ -212,16 +222,17 @@
         $.post(currentURL + "/api/friends", newFriend, function(data){
             console.log(data);
     
-            $("#Modal1").modal('toggle');
+            $('#modal1').openModal();
         });
         $.get(currentURL + "/api/finder", function(data){
-            $("#matchImg").empty();
-            $("#matchText").empty();
-            $("#matchImg").attr("src", data[0].photo);
-            $("#matchText").append("<h3>" + data[0].name + ":</h3>");
+            $("#finderImg").empty();
+            $("#finderText").empty();
+            $("#finderImg").attr("src", data[0].photo);
+            $("#finderText").append("<h3>" + data[0].name + ":</h3>");
         })
     return false;
     });
+  });
 
   </script>
 </body>
