@@ -21,6 +21,9 @@ module.exports = function(app){
 		res.json(finderData);
 	});
 
+
+var userData = []; 
+
 app.post('/api/friends', function(req, res){
 
 	clearMatch();
@@ -29,7 +32,7 @@ app.post('/api/friends', function(req, res){
 	var result;
 
 	console.log(newfriend);
-
+	console.log(userData);
 	userData.push(newfriend);
 
 	res.json(newfriend);
@@ -67,27 +70,27 @@ app.post('/api/friends', function(req, res){
 			results = [];
 
 			ratingArray.push(friendsData[i].rating);
-		}
+	}
 		
-		if (counter === friendsData.length) {
-			Math.max.apply(null, ratingArray);
-			lowest = Math.min.apply(null, ratingArray);
-			console.log(lowest);
-		}
+	if (counter === friendsData.length) {
+		Math.max.apply(null, ratingArray);
+		lowest = Math.min.apply(null, ratingArray);
+		console.log(lowest);
+	}
 
-		for (var i = 0; i < friendsData.length; i++) {
-			if (friendsData[i].rating == lowest) {
-				finderData.push(friendsData[i]);		
-			};
+	for (var i = 0; i < friendsData.length; i++) {
+		if (friendsData[i].rating == lowest) {
+			finderData.push(friendsData[i]);		
+		};
 
-			friendsData[i].rating = 0;
-		}
+		friendsData[i].rating = 0;
+	}
 
-		console.log(finderData);
+	console.log(finderData);
 
-		friendsData.push(newfriend);
+	friendsData.push(newfriend);
 
-		userData = [];
+	
 
 	})
 }
